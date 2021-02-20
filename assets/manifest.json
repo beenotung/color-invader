@@ -1,0 +1,20 @@
+{
+  "name": "Color Invader",
+  "short_name": "Color Invader",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ff4949",
+  "theme_color": "#ff4949"
+}

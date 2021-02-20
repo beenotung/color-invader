@@ -1,5 +1,5 @@
-# random-chart
+# Color Invader
 
-TODO: add desc
+Social simulation of force one's mind onto another, visualized by pixel color
 
-[![npm Package Version](https://img.shields.io/npm/v/random-chart.svg?maxAge=3600)](https://www.npmjs.com/package/random-chart)
+Hosted on: https://color-invader.surge.sh

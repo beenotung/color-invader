@@ -1,0 +1,52 @@
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.center {
+  text-align: center;
+}
+
+.controls {
+  height: 2em;
+  padding: 0.5em;
+
+  * {
+    color: white;
+    height: 1em;
+    font-size: 1em;
+    background-color: black;
+    overflow: hidden;
+  }
+
+  input, button {
+    border: 1px solid cyan;
+  }
+
+  input {
+    max-width: 30%;
+    padding: 0.5em;
+  }
+
+  button {
+    padding: 0.5em;
+    height: 2em;
+    line-height: 1em;
+  }
+}
+
+#chart {
+  --padding: 0px;
+  background-color: navajowhite;
+  outline: solid 0px cyan;
+  width: calc(100vw - var(--padding) * 2);
+  height: calc(100vh - 2em - var(--padding) * 2);
+  margin: var(--padding);
+}
