@@ -1,9 +1,6 @@
 console.log('ts')
 
 function init() {
-  const speed = document.querySelector('input#speed') as HTMLInputElement
-  const double = document.querySelector('button#double') as HTMLCanvasElement
-  const half = document.querySelector('button#half') as HTMLCanvasElement
   const canvas = document.querySelector('canvas#chart') as HTMLCanvasElement
   const rect = canvas.getBoundingClientRect()
   canvas.width = rect.width
@@ -35,22 +32,46 @@ function init() {
 
   init()
 
-  const RADIUS = 1
+  let radius = 1
   let batch = Math.ceil(Math.sqrt(canvas.width * canvas.height))
   let generation = 0
 
-  speed.value = batch.toString()
-  speed.addEventListener('change', () => {
-    batch = speed.valueAsNumber || batch
-  })
-  double.addEventListener('click', () => {
-    batch *= 2
-    speed.value = batch.toString()
-  })
-  half.addEventListener('click', () => {
-    batch = Math.ceil(batch / 2)
-    speed.value = batch.toString()
-  })
+  {
+    const input = document.querySelector('input#speed') as HTMLInputElement
+    const control = input.parentElement!
+    const double = control.querySelector('button#double') as HTMLCanvasElement
+    const half = control.querySelector('button#half') as HTMLCanvasElement
+    input.value = batch.toString()
+    input.addEventListener('change', () => {
+      batch = input.valueAsNumber || batch
+    })
+    double.addEventListener('click', () => {
+      batch *= 2
+      input.value = batch.toString()
+    })
+    half.addEventListener('click', () => {
+      batch = Math.ceil(batch / 2)
+      input.value = batch.toString()
+    })
+  }
+  {
+    const input = document.querySelector('input#size') as HTMLInputElement
+    const control = input.parentElement!
+    const double = control.querySelector('button#double') as HTMLCanvasElement
+    const half = control.querySelector('button#half') as HTMLCanvasElement
+    input.value = radius.toString()
+    input.addEventListener('change', () => {
+      radius = input.valueAsNumber || radius
+    })
+    double.addEventListener('click', () => {
+      radius *= 2
+      input.value = radius.toString()
+    })
+    half.addEventListener('click', () => {
+      radius = Math.ceil(radius / 2)
+      input.value = radius.toString()
+    })
+  }
 
   function tick() {
     for (let i = 0; i < batch; i++) {
@@ -58,8 +79,8 @@ function init() {
       const cx = randomInt(image.width)
       const cy = randomInt(image.height)
       const a = (cy * image.width + cx) * 4
-      for (let dx = -RADIUS; dx <= RADIUS; dx++) {
-        for (let dy = -RADIUS; dy <= RADIUS; dy++) {
+      for (let dx = -radius; dx <= radius; dx++) {
+        for (let dy = -radius; dy <= radius; dy++) {
           const b = ((cy + dy) * image.width + (cx + dx)) * 4
           for (let offset = 0; offset < 4; offset++) {
             const src = image.data[a + offset]

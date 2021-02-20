@@ -2,6 +2,7 @@ body {
   background-color: black;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 main {
@@ -14,19 +15,22 @@ main {
   text-align: center;
 }
 
-.controls {
+.control {
   height: 2em;
-  padding: 0.5em;
-
+  padding: 0.25em;
+  display: inline-block;
+}
+.controls {
+  font-size: 1em;
+  padding: 0.25em;
+  height: 5em;
   * {
     color: white;
-    height: 1em;
-    font-size: 1em;
     background-color: black;
-    overflow: hidden;
   }
 
-  input, button {
+  input,
+  button {
     border: 1px solid cyan;
   }
 
@@ -47,6 +51,6 @@ main {
   background-color: navajowhite;
   outline: solid 0px cyan;
   width: calc(100vw - var(--padding) * 2);
-  height: calc(100vh - 2em - var(--padding) * 2);
+  height: calc(100vh - 5em - var(--padding) * 2);
   margin: var(--padding);
 }
